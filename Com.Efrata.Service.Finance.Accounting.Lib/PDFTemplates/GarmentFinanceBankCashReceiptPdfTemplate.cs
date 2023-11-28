@@ -93,7 +93,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.PDFTemplates
             PdfPCell cellMoney = new PdfPCell() { Border = Rectangle.BOX };
             cellMoney.FixedHeight = 50f;
 
-            cellHeaderBody.Phrase = new Phrase("PT. DAN LIRIS", Title_bold_font);
+            cellHeaderBody.Phrase = new Phrase("PT. EFRATA GARMINDO UTAMA", Title_bold_font);
             headerTable1.AddCell(cellHeaderBody);
             cellHeaderBody.Phrase = new Phrase("Kel. Banaran, Kec. Grogol, Kab. Dati II Sukoharjo", normal_font);
             headerTable1.AddCell(cellHeaderBody);

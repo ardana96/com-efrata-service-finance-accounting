@@ -113,7 +113,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.BusinessLogic.BudgetCashflow
 
         private static void SetTitle(ExcelWorksheet worksheet, DivisionDto division, DateTimeOffset dueDate)
         {
-            var company = "PT DAN LIRIS";
+            var company = "PT EFRATA GARMINDO UTAMA";
             var title = "LAPORAN BUDGET CASH FLOW";
             var divisionName = "SEMUA DIVISI";
             if (division != null)

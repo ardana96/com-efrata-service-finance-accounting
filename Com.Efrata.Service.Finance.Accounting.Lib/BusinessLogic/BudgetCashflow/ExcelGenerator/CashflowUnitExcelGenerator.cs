@@ -71,7 +71,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.BusinessLogic.BudgetCashflow
 
         private static void SetTitle(ExcelWorksheet worksheet, UnitDto unit, DateTimeOffset dueDate)
         {
-            var company = "PT DAN LIRIS";
+            var company = "PT EFRATA GARMINDO UTAMA";
             var title = "LAPORAN BUDGET CASH FLOW";
             var unitName = "UNIT: ";
             if (unit != null)

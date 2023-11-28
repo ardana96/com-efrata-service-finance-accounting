@@ -209,7 +209,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.BusinessLogic.GarmentDebtBal
             var cultureInfo = new CultureInfo("id-ID");
             var period = $"PER {arrivalDate.AddHours(timezoneOffset).ToString("MMMM yyyy", cultureInfo)}";
 
-            var company = "PT DAN LIRIS";
+            var company = "PT EFRATA GARMINDO UTAMA";
 
             var title = "LAPORAN RINCIAN HUTANG";
 

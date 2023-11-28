@@ -67,7 +67,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.BusinessLogic.GarmentDebtBal
 
             using (var package = new ExcelPackage())
             {
-                var company = "PT DAN LIRIS";
+                var company = "PT EFRATA GARMINDO UTAMA";
                 var title = "LEDGER HUTANG LOKAL VALAS";
                 var monthYear = new DateTime(year, month, DateTime.DaysInMonth(year, month));
                 var monthYearStr = monthYear.ToString("dd MMMM yyyy");

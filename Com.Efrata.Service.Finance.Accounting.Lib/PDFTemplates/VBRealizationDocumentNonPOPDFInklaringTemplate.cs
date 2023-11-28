@@ -249,10 +249,10 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.PDFTemplates
             cellHeaderBody1a1.HorizontalAlignment = Element.ALIGN_RIGHT;
             headerTable3.AddCell(cellHeaderBody1a1);
 
-            // PPh ditanggung Dan Liris
+            // PPh ditanggung Efrata Garmindo Utama
             cellHeaderBody1a1.Colspan = 5;
             cellHeaderBody1a1.HorizontalAlignment = Element.ALIGN_LEFT;
-            cellHeaderBody1a1.Phrase = new Phrase("PPh ditanggung Dan Liris", normal_font);
+            cellHeaderBody1a1.Phrase = new Phrase("PPh ditanggung Efrata Garmindo Utama", normal_font);
             headerTable3.AddCell(cellHeaderBody1a1);
 
             // Mata Uang

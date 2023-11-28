@@ -609,7 +609,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Test.DataUtils.RealizationVBNonP
                             name = "name",
                             rate = 1
                         },
-                        IncomeTaxBy = "Dan Liris"
+                        IncomeTaxBy = "Efrata Garmindo Utama"
                     }
                 }
             };

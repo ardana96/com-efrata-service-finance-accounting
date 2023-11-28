@@ -21,7 +21,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.BusinessLogic.GarmentPurchas
                 var firstelement = results.FirstOrDefault();
                 var worksheet = package.Workbook.Worksheets.Add(filename);
                 #region Header Title
-                worksheet.Cells[2, 2].Value = "PT.Dan Liris";
+                worksheet.Cells[2, 2].Value = "PT.Efrata Garmindo Utama";
                 worksheet.Cells[2, 2].Style.Font.Bold = true;
                 worksheet.Cells[2, 2].Style.Font.UnderLineType = ExcelUnderLineType.Single;
                 worksheet.Cells[2, 2].Style.Font.UnderLine = true;

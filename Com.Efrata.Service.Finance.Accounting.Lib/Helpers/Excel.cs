@@ -41,7 +41,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.Helpers
             {
                 var sheet = package.Workbook.Worksheets.Add(item.Value);
 
-                sheet.Cells["A1"].Value = "PT.Dan Liris";
+                sheet.Cells["A1"].Value = "PT.Efrata Garmindo Utama";
 
                 sheet.Cells["A2"].Value = "LAPORAN EKSPEDISI BUKTI PEMBAYARAN DISPOSISI";
 
@@ -68,7 +68,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.Helpers
             {
                 var sheet = package.Workbook.Worksheets.Add(item.Value);
 
-                sheet.Cells["A1"].Value = "PT.Dan Liris";
+                sheet.Cells["A1"].Value = "PT.Efrata Garmindo Utama";
                 sheet.Cells["A1:D1"].Merge = true;
 
                 sheet.Cells["A2"].Value = title;
@@ -469,7 +469,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.Helpers
             sheet.Cells[period, from, period, to].Merge = true;
 
             sheet.Cells["L2"].Value = DateTimeOffset.Now.ToString("dd MMMM yyyy", new CultureInfo("id-ID"));
-            sheet.Cells["B1"].Value = "PT.DAN LIRIS";
+            sheet.Cells["B1"].Value = "PT.EFRATA GARMINDO UTAMA";
             sheet.Cells["B2"].Value = "LAPORAN STATUS VB";
             sheet.Cells["B6"].LoadFromDataTable(dataSource.Key, true, (styling == true) ? OfficeOpenXml.Table.TableStyles.Light16 : OfficeOpenXml.Table.TableStyles.None);
 

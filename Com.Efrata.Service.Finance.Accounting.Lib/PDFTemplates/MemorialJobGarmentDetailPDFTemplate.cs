@@ -62,7 +62,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.PDFTemplates
                 VerticalAlignment = Element.ALIGN_MIDDLE
             };
 
-            cellLeft.Phrase = new Phrase("PT. DAN LIRIS", _header2Font);
+            cellLeft.Phrase = new Phrase("PT. EFRATA GARMINDO UTAMA", _header2Font);
             cellLeft.PaddingLeft = 10;
             table.AddCell(cellLeft);
 

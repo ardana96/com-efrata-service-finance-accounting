@@ -52,6 +52,30 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.BusinessLogic.DPPVATBankExpe
                             CountItemsError++;
                             ItemsError += "'Invoice': 'Invoice harus dipilih', ";
                         }
+                        else
+                        {
+                            int CountDetailsError = 0;
+                            string DetailsError = "[";
+                            foreach (var detail in item.InternalNote.Items)
+                            {
+                                DetailsError += "{ ";
+                                if (detail.SelectInvoice)
+                                {
+                                    if (detail.Invoice.PaidAmount <= 0)
+                                    {
+                                        CountDetailsError++;
+                                        DetailsError += "'PaidAmount': 'Total dibayar harus lebih dari 0', ";
+                                    }
+                                }
+                                DetailsError += "}, ";
+                            }
+                            DetailsError += "]";
+                            if (CountDetailsError > 0)
+                            {
+                                CountItemsError++;
+                                ItemsError += $"Details: {DetailsError}, ";
+                            }
+                        }
                     }
                     
 

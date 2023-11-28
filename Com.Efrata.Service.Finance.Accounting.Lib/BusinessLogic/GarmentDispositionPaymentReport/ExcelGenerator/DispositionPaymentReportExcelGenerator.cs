@@ -130,7 +130,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.BusinessLogic.GarmentDisposi
 
         private static void SetTitle(ExcelWorksheet worksheet, DateTimeOffset startDate, DateTimeOffset endDate, int timezoneOffset, GarmentPurchasingExpeditionPosition position)
         {
-            var company = "PT DAN LIRIS";
+            var company = "PT EFRATA GARMINDO UTAMA";
             var title = "LAPORAN BUKTI PENGELUARAN BANK DPP + PPN";
 
             var cultureInfo = new CultureInfo("id-ID");
@@ -157,7 +157,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.BusinessLogic.GarmentDisposi
             {
                 var sheet = package.Workbook.Worksheets.Add(item.Value);
 
-                sheet.Cells["A1"].Value = "PT.Dan Liris";
+                sheet.Cells["A1"].Value = "PT.Efrata Garmindo Utama";
 
                 sheet.Cells["A2"].Value = "LAPORAN EKSPEDISI BUKTI PEMBAYARAN DISPOSISI";
 

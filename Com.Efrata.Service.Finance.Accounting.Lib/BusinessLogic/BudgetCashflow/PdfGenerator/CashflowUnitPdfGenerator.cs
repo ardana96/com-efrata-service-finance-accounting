@@ -329,7 +329,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.BusinessLogic.BudgetCashflow
 
         private static void SetTitle(Document document, UnitAccountingDto unit, DateTimeOffset dueDate, int offset)
         {
-            var company = "PT DAN LIRIS";
+            var company = "PT EFRATA GARMINDO UTAMA";
             var title = "LAPORAN BUDGET CASHFLOW";
             var unitName = "UNIT: ";
             if (unit != null)

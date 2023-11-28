@@ -50,20 +50,19 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.BusinessLogic.DPPVATBankExpe
             footerTable.SetWidths(widthsFooter);
             footerTable.WidthPercentage = 100;
 
-            cellFooter.Phrase = new Phrase("Dikeluarkan dengan cek/BG No. : " + "", _normalFont);
+            cellFooter.Phrase = new Phrase("Dikeluarkan dengan Check : " + "", _normalFont);
             footerTable.AddCell(cellFooter);
 
             cellFooter.Phrase = new Phrase("", _normalFont);
             footerTable.AddCell(cellFooter);
 
-            var signatureTable = new PdfPTable(3);
+            var signatureTable = new PdfPTable(2);
             var signatureCell = new PdfPCell() { HorizontalAlignment = Element.ALIGN_CENTER };
             signatureCell.Phrase = new Phrase("Bag. Keuangan", _normalFont);
             signatureTable.AddCell(signatureCell);
 
-            signatureCell.Colspan = 2;
             signatureCell.HorizontalAlignment = Element.ALIGN_CENTER;
-            signatureCell.Phrase = new Phrase("Direksi", _normalFont);
+            signatureCell.Phrase = new Phrase("Bag. Akuntansi", _normalFont);
             signatureTable.AddCell(signatureCell);
 
             signatureTable.AddCell(new PdfPCell()
@@ -81,15 +80,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.BusinessLogic.DPPVATBankExpe
                 VerticalAlignment = Element.ALIGN_BOTTOM,
                 HorizontalAlignment = Element.ALIGN_CENTER
             });
-            signatureTable.AddCell(new PdfPCell()
-            {
-                Phrase = new Phrase("---------------------------", _normalFont),
-                FixedHeight = 40,
-                Border = Rectangle.NO_BORDER,
-                VerticalAlignment = Element.ALIGN_BOTTOM,
-                HorizontalAlignment = Element.ALIGN_CENTER
-            });
-
+            
             footerTable.AddCell(new PdfPCell(signatureTable));
 
             cellFooter.Phrase = new Phrase("", _normalFont);
@@ -140,7 +131,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.BusinessLogic.DPPVATBankExpe
 
             cellCenter.Phrase = new Phrase("No.", _subHeaderFont);
             table.AddCell(cellCenter);
-            cellCenter.Phrase = new Phrase("No. SPB", _subHeaderFont);
+            cellCenter.Phrase = new Phrase("No. NI", _subHeaderFont);
             table.AddCell(cellCenter);
             cellCenter.Phrase = new Phrase("Kategori Barang", _subHeaderFont);
             table.AddCell(cellCenter);
@@ -158,13 +149,13 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.BusinessLogic.DPPVATBankExpe
                 table.AddCell(cellCenter);
                 cellLeft.Phrase = new Phrase(item.InternalNote.DocumentNo, _normalFont);
                 table.AddCell(cellLeft);
-                cellLeft.Phrase = new Phrase(string.Join("\n", item.InternalNote.Items.Select(element => $"- {element.Invoice.Category.Name}").First()), _subHeaderFont);
+                cellLeft.Phrase = new Phrase(string.Join("\n", item.InternalNote.Items.Select(element => $"- {element.Invoice.Category.Name}").First()), _normalFont);
                 table.AddCell(cellLeft);
-                cellCenter.Phrase = new Phrase(item.InternalNote.Currency.Code, _subHeaderFont);
+                cellCenter.Phrase = new Phrase(item.InternalNote.Currency.Code, _normalFont);
                 table.AddCell(cellCenter);
-                cellCenter.Phrase = new Phrase(item.InternalNote.Items.Sum(itemInvoice => itemInvoice.Invoice.Amount).ToString(), _subHeaderFont);
-                table.AddCell(cellCenter);
-                total += item.InternalNote.Items.Sum(itemInvoice => itemInvoice.Invoice.Amount);
+                cellRight.Phrase = new Phrase(string.Format("{0:n0}", item.InternalNote.Items.Sum(itemInvoice => itemInvoice.Invoice.PaidAmount)), _normalBoldFont);
+                table.AddCell(cellRight);
+                total += item.InternalNote.Items.Sum(itemInvoice => itemInvoice.Invoice.PaidAmount);
             }
 
             cellCenter.Phrase = new Phrase("", _normalFont);
@@ -175,7 +166,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.BusinessLogic.DPPVATBankExpe
             table.AddCell(cellCenter);
             cellRight.Phrase = new Phrase("Total", _normalBoldFont);
             table.AddCell(cellRight);
-            cellRight.Phrase = new Phrase(total.ToString(), _normalBoldFont);
+            cellRight.Phrase = new Phrase(string.Format("{0:n0}", total), _normalBoldFont);
             table.AddCell(cellRight);
 
             cellLeftBorderless.Colspan = 5;
@@ -202,7 +193,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.BusinessLogic.DPPVATBankExpe
                 WidthPercentage = 100,
                 HorizontalAlignment = Element.ALIGN_LEFT
             };
-            table.SetWidths(new float[] { 6f, 3f, 3f });
+            table.SetWidths(new float[] { 6f, 2f, 4f });
 
             var cellCenter = new PdfPCell()
             {
@@ -225,34 +216,35 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.BusinessLogic.DPPVATBankExpe
             table.AddCell(cellCenter);
             cellCenter.Colspan = 1;
 
-            cellLeft.Phrase = new Phrase("PT. Efrata GARMINDO", _subHeaderFont);
+            cellLeft.Phrase = new Phrase("PT. EFRATA GARMINDO UTAMA", _subHeaderFont);
             table.AddCell(cellLeft);
-            cellLeft.Phrase = new Phrase("Tanggal", _subHeaderFont);
+            cellLeft.Phrase = new Phrase("Tanggal", _smallBoldFont);
             table.AddCell(cellLeft);
-            cellLeft.Phrase = new Phrase($": {data.Date.AddHours(timezoneOffset).ToString("dd/MMMM/yyyy")}", _subHeaderFont);
-            table.AddCell(cellLeft);
-
-            cellLeft.Phrase = new Phrase("Banaran, Grogol, Sukoharjo, Jawa Tengah", _subHeaderFont);
-            table.AddCell(cellLeft);
-            cellLeft.Phrase = new Phrase("NO", _subHeaderFont);
-            table.AddCell(cellLeft);
-            cellLeft.Phrase = new Phrase($": {data.DocumentNo}", _subHeaderFont);
+            cellLeft.Phrase = new Phrase($": {data.Date.AddHours(timezoneOffset).ToString("dd/MMMM/yyyy")}", _smallBoldFont);
             table.AddCell(cellLeft);
 
-            cellLeft.Phrase = new Phrase("57552", _subHeaderFont);
+            cellLeft.Phrase = new Phrase("Jl. Merapi No.23 Blok E1, Desa/Kelurahan Banaran, Kec. Grogol,", _smallBoldFont);
             table.AddCell(cellLeft);
-            cellLeft.Phrase = new Phrase("Dibayarkan ke", _subHeaderFont);
+            cellLeft.Phrase = new Phrase("NO", _smallBoldFont);
             table.AddCell(cellLeft);
-            cellLeft.Phrase = new Phrase($": {data.Supplier.Name}", _subHeaderFont);
-            table.AddCell(cellLeft);
-
-            cellLeft.Phrase = new Phrase("Telp(0271) 732888, 7652931", _subHeaderFont);
-            table.AddCell(cellLeft);
-            cellLeft.Phrase = new Phrase("Bank", _subHeaderFont);
-            table.AddCell(cellLeft);
-            cellLeft.Phrase = new Phrase($": {data.Bank.BankName} {data.Currency.Code} - A/C : {data.Bank.AccountNumber}", _subHeaderFont);
+            cellLeft.Phrase = new Phrase($": {data.DocumentNo}", _smallBoldFont);
             table.AddCell(cellLeft);
 
+            cellLeft.Phrase = new Phrase("Kab. Sukoharjo, Provinsi Jawa Tengah", _smallBoldFont);
+            table.AddCell(cellLeft);
+            cellLeft.Phrase = new Phrase("Dibayarkan ke", _smallBoldFont);
+            table.AddCell(cellLeft);
+            cellLeft.Phrase = new Phrase($": {data.Supplier.Name}", _smallBoldFont);
+            table.AddCell(cellLeft);
+
+            cellLeft.Phrase = new Phrase("Kode Pos: 57552, Telp: 02711740888", _smallBoldFont);
+            table.AddCell(cellLeft);
+            cellLeft.Phrase = new Phrase("Bank", _smallBoldFont);
+            table.AddCell(cellLeft);
+            cellLeft.Phrase = new Phrase($": {data.Bank.BankName} {data.Currency.Code} - A/C : {data.Bank.AccountNumber}", _smallBoldFont);
+            table.AddCell(cellLeft);
+
+            table.SpacingAfter = 5f;
             document.Add(table);
         }
     }

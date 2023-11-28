@@ -548,7 +548,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.BusinessLogic.BudgetCashflow
 
         private static void SetTitle(Document document, DivisionDto division, DateTimeOffset dueDate, int offset)
         {
-            var company = "PT DAN LIRIS";
+            var company = "PT EFRATA GARMINDO UTAMA";
             var title = "LAPORAN BUDGET CASHFLOW";
             var divisionName = "DIVISI: ";
             if (division != null)

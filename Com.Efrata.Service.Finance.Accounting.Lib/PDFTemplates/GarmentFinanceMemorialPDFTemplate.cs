@@ -31,7 +31,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.PDFTemplates
             document.Open();
 
             #region header
-            Paragraph company = new Paragraph("PT. DAN LIRIS", Title_bold_font);
+            Paragraph company = new Paragraph("PT. EFRATA GARMINDO UTAMA", Title_bold_font);
             Paragraph address = new Paragraph("Kel. Banaran, Kec. Grogol, Kab.Sukoharjo 57193 \nJawa Tengah Indonesia", note_font);
             document.Add(company);
             document.Add(address);

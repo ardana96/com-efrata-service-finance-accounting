@@ -207,7 +207,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.BusinessLogic.GarmentDebtBal
 
         private static void SetTitle(ExcelWorksheet worksheet, int month, int year, bool isForeignCurrency, bool supplierIsImport)
         {
-            var company = "PT DAN LIRIS";
+            var company = "PT EFRATA GARMINDO UTAMA";
 
             if (!supplierIsImport && !isForeignCurrency)
             {

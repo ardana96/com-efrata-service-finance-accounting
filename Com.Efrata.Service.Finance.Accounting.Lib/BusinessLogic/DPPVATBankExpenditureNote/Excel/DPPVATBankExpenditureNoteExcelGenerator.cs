@@ -387,7 +387,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.BusinessLogic.DPPVATBankExpe
 
         private static void SetTitle(ExcelWorksheet worksheet, DateTimeOffset startDate, DateTimeOffset endDate, int timezoneOffset)
         {
-            var company = "PT DAN LIRIS";
+            var company = "PT EFRATA GARMINDO UTAMA";
             var title = "LAPORAN BUKTI PENGELUARAN BANK DPP + PPN";
 
             var cultureInfo = new CultureInfo("id-ID");

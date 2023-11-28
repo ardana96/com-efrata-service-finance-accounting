@@ -220,7 +220,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.BusinessLogic.GarmentDebtBal
                 VerticalAlignment = Element.ALIGN_CENTER
             };
 
-            cellLeft.Phrase = new Phrase("PT. DAN LIRIS", _headerFont);
+            cellLeft.Phrase = new Phrase("PT. EFRATA GARMINDO UTAMA", _headerFont);
             table.AddCell(cellLeft);
             cellLeft.Phrase = new Phrase(title, _headerFont);
             table.AddCell(cellLeft);

@@ -67,7 +67,7 @@ namespace Com.Efrata.Service.Finance.Accounting.Lib.PDFTemplates
             PdfPCell cellHeader4 = new PdfPCell() { Border = Rectangle.NO_BORDER };
             PdfPCell cellHeaderBody = new PdfPCell() { Border = Rectangle.NO_BORDER };
 
-            cellHeaderBody.Phrase = new Phrase("PT. DAN LIRIS", Title_bold_font);
+            cellHeaderBody.Phrase = new Phrase("PT. EFRATA GARMINDO UTAMA", Title_bold_font);
             headerTable1.AddCell(cellHeaderBody);
             cellHeaderBody.Phrase = new Phrase("Head Office : Jl. Merapi No. 23 Banaran, Grogol", normal_font);
             headerTable1.AddCell(cellHeaderBody);
